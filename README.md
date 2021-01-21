@@ -7,7 +7,7 @@
 ### Setup ###
 
 #### PixelPic can be run in 2 ways: WebRunnner.py or ObjectRunner.py.
-####WebRunner
+#### WebRunner
 * Webrunner uses flask to create a simple html interface.
 * Dependencies can be found in Requirements.py - 
   * run "pip install -r requirements.txt" to add them.
