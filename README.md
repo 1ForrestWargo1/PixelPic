@@ -1,29 +1,15 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+### This Repo is for my personal project PixelPic###
 
-### What is this repository for? ###
+* PixelPic recreates an image by replacing each pixel, or subset of pixels, with an image that has a similar RGB value.
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+### Setup ###
 
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+#### PixelPic can be run in 2 ways: WebRunnner.py or ObjectRunner.py.
+####WebRunner
+* Webrunner uses flask to create a simple html interface.
+* Dependencies can be found in Requirements.py - 
+  * run "pip install -r requirements.txt" to add them.
+* Enter "python WebRunner.py" to start flash local host.
+* to test, select test_images_small or test_images_large, and an image of your choice

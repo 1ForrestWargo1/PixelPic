@@ -1,7 +1,7 @@
 from PIL import Image, UnidentifiedImageError
 import numpy as np
 import os
-from PixelPic_files import PixelImage, Utilities as u
+import PixelImage, Utilities as u
 import time
 
 

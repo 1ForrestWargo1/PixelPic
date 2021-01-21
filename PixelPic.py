@@ -1,6 +1,6 @@
 import numpy as np
 import os
-from PixelPic_files import PixelImageLibrary, TemplateImage,Utilities as u
+import PixelImageLibrary, TemplateImage,Utilities as u
 import random
 import time
 class PixelPic(object):
