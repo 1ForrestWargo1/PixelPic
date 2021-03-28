@@ -15,12 +15,18 @@ class PixelImageLibrary(object):
     files = list
 
     def __init__(self, folder):
+        """
+        Folder: string wit path to desired folder
+        When created this opens the given folder and adds all images in it to the image library.
+        Images are added by creating Pixel image objects.
+
+        """
         self.image_library = []
         if type(folder) == str:
             self.folder_name = folder
             self.files = os.listdir(self.folder_name)
             self.images_in_folder = len(self.files)
-            #print(self.files)
+            # print(self.files)
             for i in range(len(self.files)):
                 self.files[i] = self.folder_name + "/" + self.files[i]
 
@@ -32,27 +38,35 @@ class PixelImageLibrary(object):
         print(self.failCount, "images failed out of ", self.images_in_folder)
         print("total usable images =", self.usable_images_count)
 
-
     def create_pixel_images(self):
+        """
+        This is called once in init and opens folder
+        and creates pixel image objects for each image and adds them to library
+        """
+        print("creating library...")
         start = time.time()
         for i in range(len(self.files)):
             image = PixelImage.PixelImage(self.files[i])
             if image.is_usable():
                 self.image_library.append(image)
-                self.usable_images_count +=1
+                self.usable_images_count += 1
             else:
-                self.failCount +=1
+                self.failCount += 1
         end = time.time()
-        print("library created in",round(end - start,2),"seconds")
-
-
+        print("library created in", round(end - start, 2), "seconds")
 
     def resize_library(self, pid):
+        """
+        PID: 2 element tuple of ints
+        PID = Pixel Image dimension -- when I named this I did not know about process ID
+        this resizes all images in library to desired size
+        """
         start = time.time()
         for i in range(len(self.image_library)):
             self.image_library[i].resize(pid)
         end = time.time()
-        print("library resized in",round(end - start,2),"seconds")
+        print("library resized in", round(end - start, 2), "seconds")
+
     def get_pixel_image(self, index):
         return self.image_library[index]
 
@@ -62,10 +76,7 @@ class PixelImageLibrary(object):
     def remove_image(self, index):
         self.image_library.pop(index)
 
-
-
-
-#============ not in use==========================
+    # ============ not in use==========================
 
     def open_image_folder(self):
         self.files = os.listdir(self.folder_name)
@@ -76,11 +87,12 @@ class PixelImageLibrary(object):
     def getUsableImages(self):
         percent_done = 0
         for i in range(len(self.files)):
-            u.updateProgress(percent_done,(i / len(self.files)),"loading images from folder")
+            u.updateProgress(percent_done, (i / len(self.files)), "loading images from folder")
 
             try:
                 self.image_library.append(
-                    PixelImage.PixelImage(np.array(Image.open(self.folder_name + "/" + self.files[i]).convert('RGB'), dtype=np.uint8)))
+                    PixelImage.PixelImage(
+                        np.array(Image.open(self.folder_name + "/" + self.files[i]).convert('RGB'), dtype=np.uint8)))
 
             except UnidentifiedImageError as e:
                 self.failCount += 1
@@ -88,7 +100,6 @@ class PixelImageLibrary(object):
     def check_rgb_dimensions(self):
         for i in range(self.usable_images_count - 1, 0, -1):
             if self.image_library[i].get_shape()[2] != 3:
-
                 self.image_library.pop(i)
                 self.failCount += 1
         self.usable_images_count = self.images_in_folder - self.failCount

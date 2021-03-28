@@ -13,3 +13,6 @@
   * run "pip install -r requirements.txt" to add them.
 * Enter "python WebRunner.py" to start flash local host.
 * to test, select test_images_small or test_images_large, and an image of your choice
+
+
+

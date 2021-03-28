@@ -46,6 +46,11 @@ def updateProgress(percentDoneBefore, PercentDoneNow, actionString):
 
 
 def uniquelyNameFile(fileName, fileList):
+    """
+    fileName: String
+    fileList: Array of string
+    checks if file name if in list, if not returns filename, else adds number that makes it unique
+    """
     if fileName not in fileList:
         return fileName
     version = 1
@@ -58,6 +63,9 @@ def uniquelyNameFile(fileName, fileList):
 
 
 def setFileExstension(name, extension):
+    '''
+    this just adds the given extension to a string
+    '''
     name = name.split('.', -1)
     return name[0] + "." + extension
 
