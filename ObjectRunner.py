@@ -20,7 +20,7 @@ def main():
     folder = "Posters_small"  # path to folder
     image = "Dogs Playing Poker.jpg"  # path to image that will be used as template
 
-    # creates template image object. This is a 2d array of RGB values bassed on the image
+    # creates template image object. This is a 2d array of RGB values based on the image
     template_image = TemplateImage.TemplateImage(image, images_per_side_string)
 
     # creates a pixel image library. This is a list of all images in the image folder
