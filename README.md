@@ -1,6 +1,6 @@
 # README #
 
-### This Repo is for my personal project PixelPic###
+### This Repo is for my personal project PixelPic
 
 * PixelPic recreates an image by replacing each pixel, or subset of pixels, with an image that has a similar RGB value.
 
